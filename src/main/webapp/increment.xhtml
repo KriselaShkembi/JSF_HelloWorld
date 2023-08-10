@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+   <title>Increment</title>
+</h:head>
+
+<h:body>
+
+   Increment! - Appilication Scope
+   <br /> <br />
+   Counter value: #{counterApplicationScope.value}
+   <br /> <br />
+   <h:form>
+      <h:commandButton value="Increment Application scope Test" action="#{counterApplicationScope.increment()}" />
+   </h:form>
+
+   <br /> <br /> <br /> <br />
+   Increment! - Session Scope
+   <br /> <br />
+   Counter value: #{counterSessionScope.value}
+   <br /> <br />
+   <h:form>
+      <h:commandButton value="Increment Session scope Test" action="#{counterSessionScope.increment()}" />
+   </h:form>
+
+   <br /> <br /> <br /> <br />
+   Increment! - Request Scope
+   <br /> <br />
+   Counter value: #{counterRequestScope.value}
+   <br /> <br />
+   <h:form>
+      <h:commandButton value="Increment Request scope Test" action="#{counterRequestScope.increment()}" />
+   </h:form>
+
+</h:body>
+</html>
+
