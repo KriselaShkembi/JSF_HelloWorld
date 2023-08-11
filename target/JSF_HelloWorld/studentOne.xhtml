@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+   <title>Registration</title>
+</h:head>
+
+<h:body>
+   Registration form
+   <br/><br/>
+
+   <h:form>
+      First name: <h:inputText id="firstName" value="#{studentOne.firstName}"/>
+      <br/><br/>
+
+      Last name:
+      <h:inputText id="lastName" value="#{studentOne.lastName}" required="true" requiredMessage="Last name is required!"/>
+      <h:message for="lastName" style="color: red"/>
+      <br/><br/>
+
+      Email:
+      <h:inputText id="email" value="#{studentOne.email}" required="true"  requiredMessage="Email is required!"/>
+      <h:message for="email" style="color: red"/>
+      <br/><br/>
+
+      Free passes:
+      <h:inputText id="freePasses" value="#{studentOne.freePasses}" >
+         <f:validateLongRange minimum="0" maximum="10" />
+      </h:inputText>
+      <h:message for="freePasses" style="color: red"/>
+      <br/><br/>
+
+      Postal Code:
+      <h:inputText id="postalCode" value="#{studentOne.postalCode}" >
+         <f:validateLength minimum="5" maximum="5" />
+      </h:inputText>
+      <h:message for="postalCode" style="color: red"/>
+      <br/><br/>
+
+      Phone number:
+      <h:inputText id="phoneNumber" value="#{studentOne.phoneNumber}" validatorMessage="Phone number must follow XXX-XXX-XXXX">
+         <f:validateRegex pattern="\d{3}-\d{3}-\d{4}" />
+      </h:inputText>
+      <h:message for="phoneNumber" style="color: red"/>
+      <br/><br/>
+
+      Course Code:
+      <h:inputText id="courseCode" value="#{studentOne.courseCode}"
+                   validator="#{studentOne.validateTheCourseCode}" />
+      <h:message for="courseCode" style="color: red"/>
+      <br/><br/>
+
+      Country:
+      <h:selectOneMenu value="#{studentOne.country}">
+         <f:selectItems value="#{studentOne.countryOptions}"/>
+      </h:selectOneMenu>
+      <br/><br/>
+
+      Favourite Language:
+      <h:selectOneRadio value="#{studentOne.favoriteLanguage}">
+         <f:selectItem itemValue="Java" itemLabel="Java" />
+         <f:selectItem itemValue="Python" itemLabel="Python" />
+         <f:selectItem itemValue="PHP" itemLabel="PHP" />
+         <f:selectItem itemValue="C#" itemLabel="C#" />
+      </h:selectOneRadio>
+
+      <!--            <br/><br/>-->
+      <!--            Favourite Subjects:-->
+      <!--            <h:selectManyCheckbox value="#{studentOne.favouriteSubjects}">-->
+      <!--                <f:selectItem itemValue="AAA" itemLabel="AAA" />-->
+      <!--                <f:selectItem itemValue="BBB" itemLabel="BBB" />-->
+      <!--                <f:selectItem itemValue="CCC" itemLabel="CCC" />-->
+      <!--                <f:selectItem itemValue="DDD" itemLabel="DDD" />-->
+      <!--            </h:selectManyCheckbox>-->
+
+      <br/><br/>
+      <h:commandButton value="Submit" action="studentOneResponse"/>
+   </h:form>
+</h:body>
+</html>
+

@@ -1,4 +1,4 @@
-package com.journaldev.jsf.helloworld;
+package JSF_HelloWorld.src.main.java.com.journaldev.jsf.helloworld;
 
 import javax.faces.bean.ManagedBean;
 
