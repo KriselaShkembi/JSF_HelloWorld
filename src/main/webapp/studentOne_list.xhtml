@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+   <title>Student list</title>
+   <h:outputStylesheet library="css" name="student_table_demo.css" />
+</h:head>
+
+<h:body>
+   <h3> Student list demo! </h3>
+   <hr/>
+   <ul>
+      <ui:repeat var="tempStudent" value="#{studentOneDataUtil.studentOneList}">
+         <li>#{tempStudent.firstName} #{tempStudent.lastName}</li>
+      </ui:repeat>
+   </ul>
+   <br/> <br/><br/><br/>
+
+   <h3> Student table! </h3>
+   <br/>
+   <h:dataTable var="tempStudent" value="#{studentOneDataUtil.studentOneList}"
+      styleClass="demo-table"
+      headerClass="demo-table-header"
+      rowClasses="demo-table-odd-row, demo-table-even-row">
+      <h:column>
+         <f:facet name="header">First name</f:facet>
+         #{tempStudent.firstName}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Last name</f:facet>
+         #{tempStudent.lastName}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Email</f:facet>
+         #{tempStudent.email}
+      </h:column>
+   </h:dataTable>
+
+
+
+</h:body>
+</html>
+
